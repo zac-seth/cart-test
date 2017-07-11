@@ -23,10 +23,6 @@ module.exports = {
       views: resolve("src/views")
     }
   },
-  externals: {
-    react: "React",
-    "react-dom": "ReactDOM"
-  },
   devtool: "source-map",
   module: {
     rules: [

@@ -1,4 +1,5 @@
 const browserSync = require('browser-sync').create();
+const del = require('del');
 const gulp = require('gulp');
 const gutil = require('gulp-util')
 const through = require('through2');
@@ -6,27 +7,25 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const sourcePath = './src/'
 
+const paths = {
+  bundle: './src/bundle.main.js',
+}
+
 function clean() {
-  return del([sourcePath + 'bundle.main.js']);
+  return del([sourcePath + 'bundle.main.js'])
 }
 
 gulp.task('clean', clean);
 
-gulp.task('js', function () {
-  return gulp.src(sourcePath + 'main.js')
-    .pipe(through.obj(function (chunk, encoding, callback) {
-      webpack(webpackConfig, function (err, stats) {
-        if (err) {
-          throw new gutil.PluginError("webpack", err);
-        }
-        gutil.log("[webpack]", stats.toString({
-          // output options
-        }));
-        callback(err, chunk);
-      });
-    }))
-    .pipe(gulp.dest(sourcePath))
-    .pipe(browserSync.stream());
+gulp.task('webpack', callback => {
+  webpack(webpackConfig, (err, stats) => {
+    if (err) {
+      throw new gutil.PluginError("webpack", err)
+    }
+    gutil.log("[webpack]", stats.toString())
+
+    callback()
+  })
 })
 
 gulp.task('browser-sync', () => {
@@ -40,11 +39,11 @@ gulp.task('browser-sync', () => {
     }
   });
 
-  gulp.watch(sourcePath + 'bundle.main.js').on('change', browserSync.reload);
-});
+  gulp.watch(paths.bundle).on('change', browserSync.reload)
+})
 
 gulp.task('watch', () => {
-  gulp.watch([sourcePath + '**/*.*', '!' + sourcePath + 'bundle.main.js'], ['js']);
-});
+  gulp.watch(['./src/**/*.*', '!' + paths.bundle, '!' + paths.bundle + '.map'], ['webpack'])
+})
 
-gulp.task('dev', ['js', 'watch', 'browser-sync']);
+gulp.task('dev', ['webpack', 'watch', 'browser-sync'])
