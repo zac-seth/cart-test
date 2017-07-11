@@ -5,7 +5,7 @@ console.log('Javascript loaded');
 function setupStore() {
     const store = configureStore()
 
-    return Promise.result(store)
+    return Promise.resolve(store)
 }
 
 async function run() {
@@ -18,20 +18,3 @@ run()
     .then(function() {
         console.log("App initialised.")
     })
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map

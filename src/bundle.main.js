@@ -805,27 +805,12 @@ console.log('Javascript loaded');
 function setupStore() {
     const store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_store_index__["a" /* default */])();
 
-    return Promise.result(store);
+    return Promise.resolve(store);
 }
 
 run().then(function () {
     console.log("App initialised.");
 });
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
-
-//# sourceMappingURL=src/main.js.map
 
 /***/ }),
 /* 12 */
@@ -1505,3 +1490,4 @@ module.exports = function(module) {
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.main.js.map

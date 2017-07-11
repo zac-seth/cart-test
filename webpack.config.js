@@ -27,12 +27,18 @@ module.exports = {
     react: "React",
     "react-dom": "ReactDOM"
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: 'source-map-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
