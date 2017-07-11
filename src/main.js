@@ -3,15 +3,16 @@ import ReactDOM from "react-dom"
 import StyletronClient from "styletron-client"
 import routes from "./routes"
 import configureStore from "store/index"
+import { loadDataAsync } from "store/actions"
 import App from "./app"
 
-console.log('react import', React)
-console.log('Javascript loaded')
+import "isomorphic-fetch"
 
-function setupStore() {
+async function setupStore() {
     const store = configureStore()
+    await store.dispatch(loadDataAsync())
 
-    return Promise.resolve(store)
+    return store
 }
 
 async function runApp() {
