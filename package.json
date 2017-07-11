@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/CasperSleep/code-challenge-frontend-api#readme",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "minireset.css": "0.0.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
