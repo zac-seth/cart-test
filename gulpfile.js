@@ -34,7 +34,7 @@ gulp.task('browser-sync', () => {
     server: {
       baseDir: "src",
       serveStaticOptions: {
-        extensions: ["css", "html", "js"]
+        extensions: ["css", "html", "js", "jsx"]
       }
     }
   });
