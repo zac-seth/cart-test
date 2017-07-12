@@ -8,9 +8,9 @@ export default createReducer({
         return [...cart, item]
     },
 
-    [ActionType.DECREMENT_CART_ITEM](cart, incrementedItem) {
+    [ActionType.DECREMENT_CART_ITEM](cart, decrementedItem) {
         return cart.map(item => {
-            if (item.id === incrementedItem.id && item.count > 0) {
+            if (item.id === decrementedItem.id && item.count > 0) {
                 return {
                     ...item,
                     count: item.count - 1
@@ -21,12 +21,12 @@ export default createReducer({
         })
     },
 
-    [ActionType.INCREMENT_CART_ITEM](cart, decrementedItem) {
+    [ActionType.INCREMENT_CART_ITEM](cart, incrementedItem) {
         return cart.map(item => {
             if (item.id === incrementedItem.id) {
                 return {
                     ...item,
-                    count: item.count - 1
+                    count: item.count + 1
                 }
             } else {
                 return item
